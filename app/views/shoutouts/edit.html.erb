@@ -1,0 +1,77 @@
+<!-- Validation failure messages -->
+<% if @shoutout.errors.any? %>
+  <% @shoutout.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Shoutout #<%= @shoutout.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+
+    <form action="/update_shoutout/<%= @shoutout.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+
+
+      <!-- Label and input for user_id -->
+
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @shoutout.user_id %>">
+
+      </div>
+
+
+
+      <!-- Label and input for post_id -->
+
+      <div class="form-group">
+        <label for="post_id" class="control-label">
+          Post
+        </label>
+
+
+        <input type="text" id="post_id" name="post_id" placeholder="Post" class="form-control" value="<%= @shoutout.post_id %>">
+
+      </div>
+
+
+
+      <!-- Label and input for comment -->
+
+      <div class="form-group">
+        <label for="comment" class="control-label">
+          Comment
+        </label>
+
+
+        <input type="text" id="comment" name="comment" placeholder="Comment" class="form-control" value="<%= @shoutout.comment %>">
+
+      </div>
+
+
+
+      <button class="btn btn-warning">
+        Update Shoutout
+      </button>
+      or
+
+      <a href="/shoutouts/<%= @shoutout.id %>">Cancel</a>
+
+
+    </form>
+
+  </div>
+</div>
