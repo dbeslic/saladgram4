@@ -1,0 +1,7 @@
+<div class="row" style="padding-bottom: 40px;">
+  <div class="col-md-8 col-md-offset-2">
+    <% @chat.post.each do |post| %>
+    <img src="<%= post.photo_url %>">
+    <% end %> %>
+  </div>
+</div>

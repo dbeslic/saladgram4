@@ -1,0 +1,45 @@
+<!-- Partial View Template -->
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+
+      <dt>Photo</dt>
+      <dd><img src="<%= @chat.photo_url %>" class="img-responsive" width = 450 pt></dd>
+
+
+      <dt>Prize</dt>
+      <dd><%= @chat.prize_id %></dd>
+
+
+      <dt>Host</dt>
+      <dd>
+        <a href="/users/<%= @chat.user.id %>">
+          <%= @chat.user.user_name %>
+        </a>
+      </dd>
+
+      <dt>Members</dt>
+      <dd>
+        <% @chat.participants.each do |member|%>
+        <%= member.user_name %>
+        <% end %>
+      </dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+
+      <a href="/chats" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/chats/<%= @chat.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_chat/<%= @chat.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+
+    </div>
+  </div>
+</div>
