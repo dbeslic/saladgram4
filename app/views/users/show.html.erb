@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 class="page-header">
+        <%= @user.user_name %>
+      </h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <img src= "<%= @user.avatar_url %>" class="img-responsive img-rounded" width = 400 pt style="padding-right: 35px;">
+    </div>
+
+    <div class="col-lg-8">
+      <h3>Name</h3>
+      <p><%= @user.first_name %> <%= @user.last_name %></p>
+
+      <h3>Contact Info</h3>
+      <p><%= @user.email %></p>
+
+      <% if  current_user.id == @user.id %>
+      <h3>Update Account</h3>
+      <a href="/users/edit">
+        <button class="btn-warning">
+          Edit or Delete
+        </button>
+
+      </a>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
