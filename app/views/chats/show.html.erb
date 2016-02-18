@@ -3,28 +3,34 @@
 
 
 <div class="page-header">
-  <h3>Chat #<%= @chat.id %></h3>
+  <h3><%= @chat.title %></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
 
-      <dt>Title</dt>
-      <dd><%= @chat.title %></dd>
-
-
-      <dt>Photo url</dt>
-      <dd><%= @chat.photo_url %></dd>
+      <dt>Photo</dt>
+      <dd><img src="<%= @chat.photo_url %>" class="img-responsive" width = 450 pt></dd>
 
 
       <dt>Prize</dt>
       <dd><%= @chat.prize_id %></dd>
 
 
-      <dt>User</dt>
-      <dd><%= @chat.user_id %></dd>
+      <dt>Host</dt>
+      <dd>
+        <a href="/users/<%= @chat.user.id %>">
+          <%= @chat.user.user_name %>
+        </a>
+      </dd>
 
+      <dt>Members</dt>
+      <dd>
+        <% @chat.participants.each do |member|%>
+        <%= member.user_name %>
+        <% end %>
+      </dd>
 
     </dl>
 

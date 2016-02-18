@@ -18,7 +18,7 @@
 
         <th>Sponsor</th>
 
-        <th>Chat</th>
+        <th>Prize ID</th>
 
         <th>Actions</th>
       </tr>
@@ -28,11 +28,15 @@
 
         <td><%= prize.name %></td>
 
-        <td><%= prize.picture_url %></td>
+        <td>
+          <a href = "/prizes/<%= prize.id %>">
+            <img src="<%= prize.picture_url %>" class="img-responsive" width = 150 pt>
+          </a>
+        </td>
 
         <td><%= prize.sponsor %></td>
 
-        <td><%= prize.chat_id %></td>
+        <td><%= prize.id %></td>
 
         <td>
 

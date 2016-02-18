@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :connections
   has_many :groups, :through => :connections, :source => :chat
   has_many :followers, :through => :follows, :source => :user
   has_many :posts, :dependent => :destroy

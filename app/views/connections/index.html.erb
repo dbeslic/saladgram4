@@ -14,7 +14,9 @@
 
         <th>Chat</th>
 
-        <th>User</th>
+        <th>Participant</th>
+
+        <th>User ID</th>
 
         <th>Actions</th>
       </tr>
@@ -22,7 +24,17 @@
       <% @connections.each do |connection| %>
       <tr>
 
-        <td><%= connection.chat_id %></td>
+        <td>
+          <a href ="chats/<%= connection.chat_id %>">
+            <%= connection.chat.title %>
+          </a>
+        </td>
+
+        <td>
+          <a href="users/<%= connection.user.user_name %>">
+            <%= connection.user.user_name %>
+          </a>
+        </td>
 
         <td><%= connection.user_id %></td>
 

@@ -20,8 +20,6 @@ class PrizesController < ApplicationController
 
     @prize.sponsor = params[:sponsor]
 
-    @prize.chat_id = params[:chat_id]
-
 
 
     if @prize.save
@@ -45,8 +43,6 @@ class PrizesController < ApplicationController
     @prize.picture_url = params[:picture_url]
 
     @prize.sponsor = params[:sponsor]
-
-    @prize.chat_id = params[:chat_id]
 
 
 
