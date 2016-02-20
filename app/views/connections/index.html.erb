@@ -14,6 +14,8 @@
 
         <th>Chat</th>
 
+        <th>Chat ID</th>
+
         <th>Participant</th>
 
         <th>User ID</th>
@@ -29,6 +31,8 @@
             <%= connection.chat.title %>
           </a>
         </td>
+
+        <td><%= connection.chat_id %></td>
 
         <td>
           <a href="users/<%= connection.user.user_name %>">

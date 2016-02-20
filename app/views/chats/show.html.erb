@@ -1,34 +1,4 @@
 <!-- Note: the chats show page show effectively act as the Posts index page -->
 <!-- Index posts and messages, in chronological order -->
 
-<div class="page-header">
-  <h3>
-    <%= @chat.title %>
-    <img src="<%= @chat.photo_url %>" class="img-circle" width = 80 pt>
-  </h3>
-  <h4>
-    Host: <a href="/users/<%= @chat.user_id %>"><%= @chat.user.user_name %></a>
-  </h4>
-</div>
-
-<% @chat.posts.each do |post| %>
-<div class="row" style="padding-bottom: 40px;">
-  <div class="col-md-12 col-md-offset-2">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <img src="<%= post.user.avatar_url %>" class="img-circle" width= 40 pt>
-          <%= post.user.user_name %>
-        </h4>
-      </div>
-      <div class="panel-body">
-        <img src="<%= post.photo_url %>" class="img-responsive" width = 600 pt>
-        <p>
-          <a href="/users/<%= post.user_id %>"><%= post.user.user_name %></a>
-          : <%= post.caption %>
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-<% end %>
+<%= render("show_page_messenger") %>
