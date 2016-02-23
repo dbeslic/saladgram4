@@ -1,41 +1,40 @@
-<div class="page-header">
-  <h3>Post #<%= @post.id %></h3>
-</div>
 
-<div class="row">
-  <div class="col-md-12">
-    <dl class="dl-horizontal">
+<div class="row" style="padding-bottom: 10px;">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <a href="/users/<%= @post.user_id %>"><img src="<%= @post.user.avatar_url %>" class="img-round" width = 50 pt></a>
+          <a href="/users/<%= @post.user_id %>"><%= @post.user.user_name %></a>
+          <span class="small pull-right"><%= @post.created_at %></span>
+        </h3>
+        <h3>
+          post in
+          <a href="/chats/<%= @post.chat_id %>"><%= @post.chat.title %></a>
 
-      <dt>User</dt>
-      <dd><%= @post.user_id %></dd>
+        </h3>
 
-
-      <dt>Chat</dt>
-      <dd><%= @post.chat_id %></dd>
-
-
-      <dt>Photo url</dt>
-      <dd><%= @post.photo_url %></dd>
-
-
-      <dt>Caption</dt>
-      <dd><%= @post.caption %></dd>
-
-
-    </dl>
-
-    <div class="btn-group btn-group-justified">
-
-      <a href="/posts" class="btn btn-primary">
-        Back
-      </a>
-      <a href="/posts/<%= @post.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_post/<%= @post.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
-
+      </div>
+      <div class="panel-body">
+        <img src= "<%= @post.photo_url %>" class="img-responsive" width = 800 pt>
+      </div>
     </div>
   </div>
+</div>
+
+
+
+
+<div class="btn-group btn-group-justified">
+
+  <a href="/posts" class="btn btn-primary">
+    Back
+  </a>
+  <a href="/posts/<%= @post.id %>/edit" class="btn btn-warning">
+    Edit
+  </a>
+  <a href="/delete_post/<%= @post.id %>" class="btn btn-danger" rel="nofollow">
+    Delete
+  </a>
+
 </div>

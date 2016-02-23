@@ -27,11 +27,11 @@
       <% @posts.each do |post| %>
       <tr>
 
-        <td><%= post.user_id %></td>
+        <td><%= post.user.user_name %></td>
 
-        <td><%= post.chat_id %></td>
+        <td><%= post.chat.title %></td>
 
-        <td><%= post.photo_url %></td>
+        <td><img src="<%= post.photo_url %>" width = 200 pt></td>
 
         <td><%= post.caption %></td>
 

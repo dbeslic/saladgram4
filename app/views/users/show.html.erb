@@ -34,3 +34,65 @@
   </div>
 </div>
 
+
+<div class="row" style="padding-top: 50px;">
+
+  <% if current_user.id == @user.id %>
+  <div class="col-lg-6">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        Chats I'm Hosting
+      </div>
+      <div class="panel-body" >
+        <%  @user.chats.each do |chat| %>
+        <div class="row">
+          <a href="/chats/<%= chat.id %>">
+            <p><%= chat.title %></p>
+          </a>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+  <% else %>
+  <p> </p>
+  <% end %>
+
+  <div class="col-lg-6">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        Badges Trophy Case
+      </div>
+      <div class = "panel-body">
+        <p>List of Bades</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row" style="padding-top: 50px;">
+
+  <% if current_user.id == @user.id %>
+  <div class="col-lg-6">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        Participant Chats
+      </div>
+      <div class="panel-body" >
+        <%  @user.groups.each do |chat| %>
+        <div class="row">
+          <a href="/chats/<%= chat.id %>">
+            <p><%= chat.title %></p>
+          </a>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+  <% else %>
+  <p> </p>
+  <% end %>
+</div>
