@@ -22,8 +22,6 @@ class PostsController < ApplicationController
 
     @post.caption = params[:caption]
 
-
-
     if @post.save
       redirect_to "/posts", :notice => "Post created successfully."
     else

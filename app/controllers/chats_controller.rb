@@ -5,6 +5,30 @@ class ChatsController < ApplicationController
 
   def show
     @chat = Chat.find(params[:id])
+    @post = Post.new
+
+  end
+
+  def chat_post
+    @post = Post.new
+
+    @post.user_id = params[:user_id]
+
+    @post.chat_id = params[:chat_id]
+
+    @post.photo_url = params[:photo_url]
+
+    @post.caption = params[:caption]
+
+    @chat = Chat.find(params[:chat_id])
+
+    if @post.save
+      redirect_to "/chats" , :notice => "Post created successfully."
+      # Fix this link
+      # redirect_to "/chats/:id" , :notice => "Post created successfully."
+    else
+      render 'show'
+    end
   end
 
   def new
@@ -21,7 +45,6 @@ class ChatsController < ApplicationController
     @chat.prize_id = params[:prize_id]
 
     @chat.user_id = params[:user_id]
-
 
 
     if @chat.save
