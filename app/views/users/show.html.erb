@@ -25,8 +25,11 @@
         <button class="btn-warning">
           Edit or Delete
         </button>
-
       </a>
+
+      <h3>Badges</h3>
+      <p>List of badges</p>
+
 
       <% end %>
 
@@ -47,8 +50,20 @@
         <%  @user.chats.each do |chat| %>
         <div class="row">
           <a href="/chats/<%= chat.id %>">
-            <p><%= chat.title %></p>
+            <h4>
+              <img src="<%= chat.photo_url %>" class = "img-responsive img-circle" width= 70 pt>
+              <%= chat.title %>
+            </h4>
           </a>
+          <p>
+            with
+            <% chat.participants.each do |participant|%>
+            <a href = "/users/<%= participant.id %>">
+              <%= participant.user_name %>;
+            </a>
+            <% end %>
+          </p>
+
         </div>
         <% end %>
 
@@ -59,20 +74,6 @@
   <p> </p>
   <% end %>
 
-  <div class="col-lg-6">
-    <div class="panel panel-success">
-      <div class="panel-heading">
-        Badges Trophy Case
-      </div>
-      <div class = "panel-body">
-        <p>List of Bades</p>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<div class="row" style="padding-top: 50px;">
 
   <% if current_user.id == @user.id %>
   <div class="col-lg-6">
@@ -84,15 +85,33 @@
         <%  @user.groups.each do |chat| %>
         <div class="row">
           <a href="/chats/<%= chat.id %>">
-            <p><%= chat.title %></p>
+            <h4>
+              <img src="<%= chat.photo_url %>" class = "img-responsive img-circle" width= 70 pt>
+              <%= chat.title %>
+            </h4>
           </a>
+          <p>
+            host
+            <a href="/users/<%= chat.user_id %>">
+              <%= chat.user.user_name %>
+            </a>
+            with
+            <% chat.participants.each do |participant|%>
+            <a href = "/users/<%= participant.id %>">
+              <%= participant.user_name %>;
+            </a>
+            <% end %>
+          </p>
         </div>
         <% end %>
-
       </div>
+
     </div>
   </div>
   <% else %>
   <p> </p>
   <% end %>
+
+
 </div>
+

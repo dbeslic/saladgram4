@@ -169,6 +169,7 @@ Rails.application.routes.draw do
   get "/chats", :controller => "chats", :action => "index"
   get "/chats/:id", :controller => "chats", :action => "show"
   post "/chat_post", :controller => "chats", :action => "chat_post"
+  get "/chats/:id/stats", :controller => "chats", :action => "stats"
 
   # UPDATE
   get "/chats/:id/edit", :controller => "chats", :action => "edit"

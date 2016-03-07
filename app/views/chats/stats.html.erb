@@ -1,0 +1,31 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
+
+<h1>
+  <img src="<%= @chat.photo_url %>" class="img-responsive img-circle" width = 150 pt>
+  <%= @chat.title %>
+</h1>
+
+<h2>Stats this Saladgram chat</h2>
+
+
+<dl class="dl-horizontal" style="padding-top: 30px;">
+
+  <dt>
+    <%= @chat.user.user_name %> *host*
+  </dt>
+  <dd>
+    <%= @chat.user.posts.where({ :chat_id => @chat.id }).count %>
+  </dd>
+
+
+  <% @chat.participants.each do |participant| %>
+  <dt>
+    <%= participant.user_name %>
+  </dt>
+  <dd>
+    <%= participant.posts.where({ :chat_id => @chat.id }).count %>
+  </dd>
+  <% end %>
+
+</dl>

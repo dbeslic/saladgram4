@@ -23,12 +23,14 @@ class ChatsController < ApplicationController
     @chat = Chat.find(params[:chat_id])
 
     if @post.save
-      redirect_to "/chats" , :notice => "Post created successfully."
-      # Fix this link
-      # redirect_to "/chats/:id" , :notice => "Post created successfully."
+      redirect_to :back , :notice => "Post created successfully."
     else
       render 'show'
     end
+  end
+
+  def stats
+    @chat = Chat.find(params[:id])
   end
 
   def new
