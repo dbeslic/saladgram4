@@ -151,6 +151,7 @@ Rails.application.routes.draw do
   # READ
   get "/connections", :controller => "connections", :action => "index"
   get "/connections/:id", :controller => "connections", :action => "show"
+  post "/join_chat", :controller => "chats", :action => "join_chat"
 
   # UPDATE
   get "/connections/:id/edit", :controller => "connections", :action => "edit"

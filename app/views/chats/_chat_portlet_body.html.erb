@@ -1,0 +1,28 @@
+<div class="portlet-body chat-widget" style="overflow-y: auto; width: auto; height: 600px;">
+ <hr>
+
+ <% @chat.posts.each do |post| %>
+ <div class="row">
+  <div class="col-lg-12">
+    <div class="media">
+
+      <a class="pull-left" href="/users/<%= post.user_id %>">
+        <img class="media-object img-circle" src="<%= post.user.avatar_url %>" alt="" width= 40 pt>
+      </a>
+
+      <div class="media-body">
+        <h4 class="media-heading">
+          <a href="/users/<%= post.user_id %>"><%= post.user.user_name %></a>
+          <span class="small pull-right"><%= post.created_at %></span>
+        </h4>
+
+        <img src="<%= post.photo_url %>" class = "img-responsive" width = 450 pt>
+        <p><%= post.caption %></p>
+      </div>
+
+    </div>
+  </div>
+</div>
+<hr>
+<% end %>
+</div>

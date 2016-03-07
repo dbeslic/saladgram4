@@ -6,6 +6,7 @@ class ChatsController < ApplicationController
   def show
     @chat = Chat.find(params[:id])
     @post = Post.new
+    @connection = Connection.new
 
   end
 
@@ -27,6 +28,24 @@ class ChatsController < ApplicationController
     else
       render 'show'
     end
+  end
+
+
+  def join_chat
+    @connection = Connection.new
+
+    @connection.chat_id = params[:chat_id]
+
+    @connection.user_id = params[:user_id]
+
+    @chat = Chat.find(params[:chat_id])
+
+    if @connection.save
+      redirect_to :back, :notice => "You joined the chat!"
+    else
+      render 'show'
+    end
+
   end
 
   def stats
