@@ -1,4 +1,4 @@
-<form action="/chat_post" method="post">
+<form enctype="multipart/form-data" action="/chat_post" method="post">
 
   <!-- Hidden input for authenticity token to protect from forgery -->
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
@@ -12,8 +12,8 @@
   </div>
 
   <div class="form-group">
-    <label for="photo_url" class="control-label">Photo url</label>
-    <input type="text" id="photo_url" name="photo_url" placeholder="Photo url" class="form-control" value="<%= @post.photo_url %>">
+    <label for="photo_url" class="control-label">Photo upload</label>
+    <input type="file" id="photo_url" name="photo_url" placeholder="Photo url" class="form-control" value="<%= @post.photo_url %>">
   </div>
 
   <div class="form-group">

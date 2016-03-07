@@ -16,6 +16,8 @@ gem 'chartkick'
 
 gem 'groupdate'
 
+gem 'carrierwave'
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

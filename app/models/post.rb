@@ -11,4 +11,6 @@ class Post < ActiveRecord::Base
   validates :photo_url, :presence => true
   validates :photo_url, :presence => true
 
+  mount_uploader :photo_url, PhotoUrlUploader
+
 end
