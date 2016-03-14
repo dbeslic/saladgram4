@@ -7,4 +7,69 @@
   </h1>
 </div>
 
-<%= render ("list_of_chats") %>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+
+        <th>Chat</th>
+
+        <th>Picture</th>
+
+        <th>Prize</th>
+
+        <th>Admin</th>
+
+        <th>Chat ID</th>
+
+        <th>Actions</th>
+
+      </tr>
+
+      <% @chats.each do |chat| %>
+      <tr>
+
+        <td>
+          <a href="/chats/<%= chat.id %>">
+            <%= chat.title %>
+          </a>
+        </td>
+
+        <td>
+          <a href="/chats/<%= chat.id %>">
+            <img src="<%= chat.photo_url %>" class="img-responsive" width = 250 pt>
+          </a>
+        </td>
+
+        <td>
+          <% if chat.prize.present?  %>
+          <a href="/prizes/<%= chat.prize_id %>">
+            <%= chat.prize.name %>
+          </a>
+          from <%= chat.prize.sponsor %>
+          <% else %>
+          No prize
+          <% end %>
+        </td>
+
+        <td>
+          <a href="/users/<%= chat.user.id %>">
+            <%= chat.user.user_name %>
+          </a>
+        </td>
+
+        <td><%= chat.id %></td>
+
+        <td>
+
+          <a href="/chats/<%= chat.id %>" class="btn btn-primary">Show</a>
+          <a href="/chats/<%= chat.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_chat/<%= chat.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+

@@ -22,11 +22,15 @@
   </div>
 
   <button class="btn btn-success">
-    Create Post
-  </button>
-  or
-  <a href="/chats/<%= @chat.id %>/stats">
-    Stats
-  </a>
-
+    <i class="fa fa-camera"></i>
+    Post!
+  </button> or
 </form>
+
+
+<a href="/chats/<%= @chat.id %>/stats" class="btn btn-default">
+  <i class="fa fa-line-chart"></i>
+  Stats
+</a>
+
+

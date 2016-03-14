@@ -1,7 +1,7 @@
 
 <div class="row" style="padding-bottom: 10px;">
   <div class="col-md-8 col-md-offset-2">
-  <div class="panel panel-success">
+    <div class="panel panel-success">
       <div class="panel-heading">
         <h3 class="panel-title">
           <a href="/users/<%= @post.user_id %>"><img src="<%= @post.user.avatar_url %>" class="img-round" width = 50 pt></a>
@@ -15,8 +15,15 @@
         </h3>
 
       </div>
+
       <div class="panel-body">
+
         <img src= "<%= @post.photo_url %>" class="img-responsive" width = 800 pt>
+
+        <p><%= @post.caption %></p>
+
+        <%= render("likes/like_button_local") %>
+
       </div>
     </div>
   </div>

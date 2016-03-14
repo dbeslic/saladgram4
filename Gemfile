@@ -14,7 +14,7 @@ gem 'dateslices'
 
 gem 'chartkick'
 
-gem 'groupdate'
+# gem 'groupdate'
 
 gem 'carrierwave'
 

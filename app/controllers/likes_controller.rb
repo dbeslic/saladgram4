@@ -21,7 +21,7 @@ class LikesController < ApplicationController
 
 
     if @like.save
-      redirect_to "/likes", :notice => "Like created successfully."
+      redirect_to :back, :notice => "You liked the post!"
     else
       render 'new'
     end
