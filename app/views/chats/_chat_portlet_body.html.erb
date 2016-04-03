@@ -34,16 +34,36 @@
             <input type="hidden" id="post_id" name="post_id" value="<%= post.id %>">
           </div>
 
-          <button class="btn">
+
+          <button class="btn-default">
+
+            <% if post.likes.where({ :user_id => current_user.id }).present? %>
+
             <i class="fa fa-heart"></i>
+            <small class="text-muted"> You liked it!</small>
+
+            <% else %>
+
+            <i class="fa fa-heart-o"></i>
             <small class="text-muted"> click to like this</small>
+
+            <% end %>
+
           </button>
         </form>
+
         <% if post.likes.count > 0 %>
-        <p><%= post.likes.count.to_s %> likes</p>
+
+        <p>
+          <a href="/posts/<%= post.id %>/likes">
+            <%= post.likes.count.to_s %> likes
+          </a>
+        </p>
+
         <% else %>
         <p></p>
         <% end %>
+
       </div>
 
 

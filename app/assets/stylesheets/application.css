@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+/*Playing around with CSS*/
+
+ .zebra {
+  color: black;
+  font-size: 18pt;
+  font-family: arial
+}

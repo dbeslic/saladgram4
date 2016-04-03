@@ -6,9 +6,9 @@
         <h3 class="panel-title">
           <a href="/users/<%= @post.user_id %>"><img src="<%= @post.user.avatar_url %>" class="img-round" width = 50 pt></a>
           <a href="/users/<%= @post.user_id %>"><%= @post.user.user_name %></a>
-          <span class="small pull-right"><%= @post.created_at %></span>
+          <span class="small pull-right"><%= time_ago_in_words(@post.created_at) %></span>
         </h3>
-        <h3>
+        <h3 class = "zebra">
           post in
           <a href="/chats/<%= @post.chat_id %>"><%= @post.chat.title %></a>
 
