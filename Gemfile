@@ -16,6 +16,8 @@ gem 'chartkick'
 
 # gem 'groupdate'
 
+gem 'active_median', '~> 0.1.0'
+
 gem 'carrierwave'
 
 

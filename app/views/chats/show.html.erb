@@ -5,7 +5,6 @@
 <div class="container bootstrap snippet">
 
 
-
   <div class="row">
 
     <%= render("chat_side_window") %>
@@ -24,12 +23,10 @@
             , <a href="/users/<%= member.id %>"><%= member.user_name %></a>
             <% end %>
           </h5>
-
         </div>
-        <div class="clearfix"></div>
       </div>
 
-      <div id="chat" class="panel-collapse collapse in">
+      <div class="panel-collapse collapse in">
 
         <div>
 
@@ -52,28 +49,29 @@
       </div>
     </div>
 
-    <% if @chat.participants.include? current_user %>
-
-    <%= render("post_form") %>
-
-    <% elsif @chat.user_id == current_user.id %>
-
-    <%= render("post_form") %>
-
-    <% else %>
-
-    <%= render("join_chat") %>
-
-    <% end %>
-
-
-
-    <!-- /.col-md-4 -->
   </div>
-
-
-  <!-- row -->
 </div>
+
+<hr>
+
+<div class = "row">
+  <% if @chat.participants.include? current_user %>
+
+  <%= render("post_form") %>
+
+  <% elsif @chat.user_id == current_user.id %>
+
+  <%= render("post_form") %>
+
+  <% else %>
+
+  <%= render("join_chat") %>
+
+  <% end %>
+
+</div>
+
+
 </div>
 
 

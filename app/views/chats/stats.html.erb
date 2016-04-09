@@ -1,12 +1,12 @@
-<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 
+<!-- Just download into assets, Javascript -->
 
+<img src="<%= @chat.photo_url %>" class="img-responsive img-circle row-float" width = 150 pt>
 <h1>
-  <img src="<%= @chat.photo_url %>" class="img-responsive img-circle" width = 150 pt>
   <%= @chat.title %>
 </h1>
 
-<h2>Stats for this epic Salad battle!</h2>
+<h2 class = "clear-float">Stats for this epic Salad battle!</h2>
 
 <div>
   <dl class="dl-horizontal" style="padding-top: 30px;">
@@ -33,7 +33,9 @@
 </div>
 
 <div>
+  <h3>Posts by Day</h3>
 
-  [Enter Charts Here]
+  <%= line_chart @chat.posts.group_by_day(:created_at).count %>
+
 
 </div>

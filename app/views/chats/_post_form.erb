@@ -1,4 +1,5 @@
 <div class="row">
+<h4>Post a Saladgram!</h4>
   <form enctype="multipart/form-data" action="/chat_post" method="post">
 
     <!-- Hidden input for authenticity token to protect from forgery -->
@@ -12,13 +13,13 @@
       <input type="hidden" id="chat_id" name="chat_id" placeholder="Chat" class="form-control" value="<%= @chat.id %>">
     </div>
 
-    <div class="form-group" class="row">
-      <label for="photo_url" class="control-label">Photo upload</label>
+    <div class="form-group" >
+      <!-- <label for="photo_url" class="control-label">Photo upload</label> -->
       <input type="file" id="photo_url" name="photo_url" placeholder="Photo url" class="form-control" value="<%= @post.photo_url %>">
     </div>
 
-    <div class="form-group" class="row">
-      <label for="caption" class="control-label">Caption</label>
+    <div class="form-group" >
+      <!-- <label for="caption" class="control-label">Caption</label> -->
       <input type="text" id="caption" name="caption" placeholder="Caption" class="form-control" value="<%= @post.caption %>">
     </div>
 
@@ -29,6 +30,7 @@
   </form>
 
   <hr>
+  <h4>More Cool Stuff</h4>
   <a href="/chats/<%= @chat.id %>/stats" class="btn btn-default">
     <i class="fa fa-line-chart"></i>
     Stats
