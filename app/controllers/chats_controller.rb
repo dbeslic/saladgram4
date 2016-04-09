@@ -1,4 +1,5 @@
 class ChatsController < ApplicationController
+
   def index
     @chats = Chat.all
   end
@@ -107,7 +108,6 @@ class ChatsController < ApplicationController
     @chat = Chat.find(params[:id])
 
     @chat.destroy
-
 
     redirect_to "/chats", :notice => "Chat deleted."
 

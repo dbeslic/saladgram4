@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/users", :controller => "users", :action => "index"
   get "/users/:id", :controller => "users", :action => "show"
 
+  resources :badges
   # Routes for the Badge resource:
   # CREATE
   get "/badges/new", :controller => "badges", :action => "new"
@@ -163,22 +164,25 @@ Rails.application.routes.draw do
   #------------------------------
 
   # Routes for the Chat resource:
-  # CREATE
-  get "/chats/new", :controller => "chats", :action => "new"
-  post "/create_chat", :controller => "chats", :action => "create"
 
-  # READ
-  get "/chats", :controller => "chats", :action => "index"
-  get "/chats/:id", :controller => "chats", :action => "show"
+  resources :chats
+
+# RESTful Routes not yet working
+  # UPDATE
+  post "/update_chat/:id", :controller => "chats", :action => "update"
+
+  # New RCAVs created to post pictures, see stats
   post "/chat_post", :controller => "chats", :action => "chat_post"
   get "/chats/:id/stats", :controller => "chats", :action => "stats"
 
-  # UPDATE
-  get "/chats/:id/edit", :controller => "chats", :action => "edit"
-  post "/update_chat/:id", :controller => "chats", :action => "update"
+# Deleted and replaced with scaffold links
+  # get "/chats", :controller => "chats", :action => "index"
+  # get "/chats/:id", :controller => "chats", :action => "show"
+  # get "/chats/new", :controller => "chats", :action => "new"
+  # get "/chats/:id/edit", :controller => "chats", :action => "edit"
+  # get "/delete_chat/:id", :controller => "chats", :action => "destroy"
 
-  # DELETE
-  get "/delete_chat/:id", :controller => "chats", :action => "destroy"
+
   #------------------------------
 
   # The priority is based upon order of creation: first created -> highest priority.
