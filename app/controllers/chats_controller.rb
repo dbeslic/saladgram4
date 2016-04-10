@@ -56,6 +56,7 @@ class ChatsController < ApplicationController
 
   def new
     @chat = Chat.new
+    @prizes = Prize.all
   end
 
   def create

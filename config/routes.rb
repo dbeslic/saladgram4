@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   post "/update_chat/:id", :controller => "chats", :action => "update"
   post "/update_like/:id", :controller => "likes", :action => "update"
   post "/update_post/:id", :controller => "posts", :action => "update"
+  post "/update_prize/:id", :controller => "prizes", :action => "update"
 
 
 # New RCAVs created to post pictures, see stats, likes on one post
@@ -29,19 +30,18 @@ Rails.application.routes.draw do
 
   # Routes for the Prize resource:
   # CREATE
-  get "/prizes/new", :controller => "prizes", :action => "new"
-  post "/create_prize", :controller => "prizes", :action => "create"
+  # get "/prizes/new", :controller => "prizes", :action => "new"
+  # post "/create_prize", :controller => "prizes", :action => "create"
 
   # READ
-  get "/prizes", :controller => "prizes", :action => "index"
-  get "/prizes/:id", :controller => "prizes", :action => "show"
+  # get "/prizes", :controller => "prizes", :action => "index"
+  # get "/prizes/:id", :controller => "prizes", :action => "show"
 
   # UPDATE
-  get "/prizes/:id/edit", :controller => "prizes", :action => "edit"
-  post "/update_prize/:id", :controller => "prizes", :action => "update"
+  # get "/prizes/:id/edit", :controller => "prizes", :action => "edit"
 
   # DELETE
-  get "/delete_prize/:id", :controller => "prizes", :action => "destroy"
+  # get "/delete_prize/:id", :controller => "prizes", :action => "destroy"
   #------------------------------
 
   # Routes for the Connection resource:
