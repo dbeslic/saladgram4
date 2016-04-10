@@ -2,7 +2,7 @@
 <!-- Index posts and messages, in chronological order -->
 
 
-<div class="container bootstrap snippet">
+<div class="container">
 
 
   <div class="row">
@@ -12,10 +12,11 @@
     <div class="col-md-7 col-md-offset-1">
      <div class="portlet portlet-default">
 
-      <div class="portlet-heading" style="height: 90px;">
+      <div class="portlet-heading" style="height: 75px;">
         <div class="portlet-title">
-          <h4><img src="<%= @chat.photo_url %>" class="img-circle" width = 60 pt> <%= @chat.title %></h4>
-          <h5><i class="fa fa-circle text-green"></i>
+          <img src="<%= @chat.photo_url %>" class="img-circle row-float chat-header-thumbnail">
+          <h3 class = "margin-left-md-lg"><%= @chat.title %></h3>
+          <h5 class = "margin-left-md-lg"><i class="fa fa-circle text-green"></i>
             <a href="/users/<%= @chat.user_id %>">
               <%= @chat.user.user_name %>
             </a>
@@ -52,26 +53,32 @@
   </div>
 </div>
 
-<hr>
-
-<div class = "row">
-  <% if @chat.participants.include? current_user %>
-
-  <%= render("post_form") %>
-
-  <% elsif @chat.user_id == current_user.id %>
-
-  <%= render("post_form") %>
-
-  <% else %>
-
-  <%= render("join_chat") %>
-
-  <% end %>
 
 </div>
 
 
+
+<div class="navbar navbar-default navbar-fixed-bottom nav-bottom">
+  <div class="container">
+
+    <div class="navbar-collapse collapse bottom-collapse">
+
+      <% if @chat.participants.include? current_user %>
+
+      <%= render("post_form") %>
+
+      <% elsif @chat.user_id == current_user.id %>
+
+      <%= render("post_form") %>
+
+      <% else %>
+
+      <%= render("join_chat") %>
+
+      <% end %>
+
+    </div>
+  </div>
 </div>
 
 

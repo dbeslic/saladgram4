@@ -9,9 +9,7 @@ class User < ActiveRecord::Base
   has_many :groups, :through => :connections, :source => :chat
   has_many :followers, :through => :follows, :source => :user
   has_many :posts, :dependent => :destroy
-  has_many :messages, :dependent => :destroy
   has_many :likes, :dependent => :destroy
-  has_many :shoutouts, :dependent => :destroy
 
   validates :user_name, :presence => true
   validates :avatar_url, :presence => true

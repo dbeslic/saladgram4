@@ -45,7 +45,7 @@
 
             <li class="list-group-item">
               <a href="/posts/<%= post.id %>/edit" class="btn btn-warning">Edit</a>
-              <a href="/delete_post/<%= post.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+              <a href="/posts/<%= post.id %>" data-method="delete" class="btn btn-danger" rel="nofollow">Delete</a>
             </li>
           </ul>
 

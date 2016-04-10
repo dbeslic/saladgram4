@@ -45,6 +45,11 @@
  padding-top: 20px;
 }
 
+.nav-bottom {
+  height: 200px;
+  padding-top: 25px;
+}
+
 /* Styles for top cover */
 
 /*http://www.siouxcountydailynews.com/wp-content/uploads/2014/04/salad.png*/
@@ -113,6 +118,28 @@
 
 .btn-user {
   margin-bottom: 20px;
+}
+
+.post-fixed {
+  position: absolute;
+  bottom: 0;
+  width: 40%;
+}
+
+.side-window {
+  overflow-y: auto;
+  width: auto;
+  height: 825px;
+}
+
+.body-window {
+  overflow-y: auto;
+  width: auto;
+  height: 825px;
+}
+
+.chat-header-thumbnail {
+  width: 85px;
 }
 
 /* Additional styles */
@@ -191,6 +218,9 @@ body {
   margin-bottom: 50px;
 }
 
+.margin-below-bottom-md-lg {
+  margin-bottom: 100px;
+
 .margin-below-bottom-lg {
   margin-bottom: 150px;
 }
@@ -198,3 +228,20 @@ body {
 .margin-below-bottom-xl {
   margin-bottom: 200px;
 }
+
+.margin-left-sm {
+  margin-left: 20px;
+}
+.margin-left-md {
+  margin-left: 50px;
+}
+
+.margin-left-md-lg {
+  margin-left: 100px;
+}
+
+.margin-left-xl {
+  margin-left: 200px;
+}
+
+

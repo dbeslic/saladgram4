@@ -8,7 +8,7 @@
           <a href="/users/<%= @post.user_id %>"><%= @post.user.user_name %></a>
           <span class="small pull-right"><%= time_ago_in_words(@post.created_at) %></span>
         </h3>
-        <h3 class = "zebra">
+        <h3>
           post in
           <a href="/chats/<%= @post.chat_id %>"><%= @post.chat.title %></a>
 
@@ -40,7 +40,7 @@
   <a href="/posts/<%= @post.id %>/edit" class="btn btn-warning">
     Edit
   </a>
-  <a href="/delete_post/<%= @post.id %>" class="btn btn-danger" rel="nofollow">
+  <a href="/posts/<%= @post.id %>" data-method="delete" class="btn btn-danger" rel="nofollow">
     Delete
   </a>
 
