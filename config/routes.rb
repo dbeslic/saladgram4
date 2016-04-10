@@ -3,27 +3,9 @@ Rails.application.routes.draw do
   get "/", :controller => "chats", :action => "index"
 
   devise_for :users
-
   get "/users", :controller => "users", :action => "index"
   get "/users/:id", :controller => "users", :action => "show"
 
-  resources :badges
-  # Routes for the Badge resource:
-  # CREATE
-  get "/badges/new", :controller => "badges", :action => "new"
-  post "/create_badge", :controller => "badges", :action => "create"
-
-  # READ
-  get "/badges", :controller => "badges", :action => "index"
-  get "/badges/:id", :controller => "badges", :action => "show"
-
-  # UPDATE
-  get "/badges/:id/edit", :controller => "badges", :action => "edit"
-  post "/update_badge/:id", :controller => "badges", :action => "update"
-
-  # DELETE
-  get "/delete_badge/:id", :controller => "badges", :action => "destroy"
-  #------------------------------
 
   # Routes for the Follow resource:
   # CREATE
@@ -182,6 +164,23 @@ Rails.application.routes.draw do
   # get "/chats/:id/edit", :controller => "chats", :action => "edit"
   # get "/delete_chat/:id", :controller => "chats", :action => "destroy"
 
+ resources :badges
+  # Routes for the Badge resource:
+  # CREATE
+  get "/badges/new", :controller => "badges", :action => "new"
+  post "/create_badge", :controller => "badges", :action => "create"
+
+  # READ
+  get "/badges", :controller => "badges", :action => "index"
+  get "/badges/:id", :controller => "badges", :action => "show"
+
+  # UPDATE
+  get "/badges/:id/edit", :controller => "badges", :action => "edit"
+  post "/update_badge/:id", :controller => "badges", :action => "update"
+
+  # DELETE
+  get "/delete_badge/:id", :controller => "badges", :action => "destroy"
+  #------------------------------
 
   #------------------------------
 

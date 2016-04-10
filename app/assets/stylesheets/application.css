@@ -111,6 +111,10 @@
   text-indent: 60 px;
 }
 
+.btn-user {
+  margin-bottom: 20px;
+}
+
 /* Additional styles */
 
 body {

@@ -16,16 +16,16 @@
     <div class="col-md-offset-1 col-md-3 main-content-cell">
      <h2 class="content-cell-heading">Profile</h2>
      <hr>
-     <h3>User Name</h3>
+     <h4>User Name</h4>
      <p><%= @user.user_name %></p>
 
-     <h3>Contact Info</h3>
+     <h4>Contact Info</h4>
      <p><%= @user.email %></p>
 
      <% if  current_user.id == @user.id %>
-     <h3>Update Account</h3>
+     <h4>Update Account</h4>
      <a href="/users/edit">
-      <button class="btn-warning">
+      <button class="btn btn-warning btn-user">
         Edit or Delete
       </button>
     </a>
