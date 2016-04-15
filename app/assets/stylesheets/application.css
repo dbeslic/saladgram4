@@ -129,13 +129,13 @@
 .side-window {
   overflow-y: auto;
   width: auto;
-  height: 815px;
+  height: 80%;
 }
 
 .body-window {
   overflow-y: auto;
   width: auto;
-  height: 815px;
+  height: 80%;
 }
 
 .chat-header-thumbnail {
