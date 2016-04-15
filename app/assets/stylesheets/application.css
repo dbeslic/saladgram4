@@ -113,7 +113,7 @@
 }
 
 .thumbnail-detail{
-  text-indent: 60 px;
+  text-indent: 60px;
 }
 
 .btn-user {
@@ -220,6 +220,7 @@ body {
 
 .margin-below-bottom-md-lg {
   margin-bottom: 100px;
+}
 
 .margin-below-bottom-lg {
   margin-bottom: 150px;
