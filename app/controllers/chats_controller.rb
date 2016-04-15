@@ -1,4 +1,5 @@
 class ChatsController < ApplicationController
+
   def index
     @chats = Chat.all
   end
@@ -6,6 +7,7 @@ class ChatsController < ApplicationController
   def show
     @chat = Chat.find(params[:id])
     @post = Post.new
+    @connection = Connection.new
 
   end
 
@@ -29,12 +31,32 @@ class ChatsController < ApplicationController
     end
   end
 
+
+  def join_chat
+    @connection = Connection.new
+
+    @connection.chat_id = params[:chat_id]
+
+    @connection.user_id = params[:user_id]
+
+    @chat = Chat.find(params[:chat_id])
+
+    if @connection.save
+      redirect_to :back, :notice => "You joined the chat!"
+    else
+      render 'show'
+    end
+
+  end
+
   def stats
     @chat = Chat.find(params[:id])
   end
 
+
   def new
     @chat = Chat.new
+    @prizes = Prize.all
   end
 
   def create
@@ -87,7 +109,6 @@ class ChatsController < ApplicationController
     @chat = Chat.find(params[:id])
 
     @chat.destroy
-
 
     redirect_to "/chats", :notice => "Chat deleted."
 

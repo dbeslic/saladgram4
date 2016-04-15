@@ -1,11 +1,11 @@
 <!-- Validation failure messages -->
 <% if @chat.errors.any? %>
-  <% @chat.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
+<% @chat.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
 <% end %>
 
 <div class="page-header">
@@ -15,7 +15,7 @@
 <div class="row">
   <div class="col-md-12">
 
-    <form action="/create_chat" method="post">
+    <form action="/chats" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -56,23 +56,13 @@
           Prize
         </label>
 
-
         <input type="text" id="prize_id" name="prize_id" placeholder="Prize" class="form-control" value="<%= @chat.prize_id %>">
-
       </div>
-
-
 
       <!-- Label and input for user_id -->
 
       <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
-
-
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @chat.user_id %>">
-
+        <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
       </div>
 
 
@@ -85,5 +75,30 @@
 
     </form>
 
+
+
   </div>
+
+  <div class="col-md-12 margin-above-top-md">
+    <h3>[TBU - Prize dropbox. Make functional]</h3>
+
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Prize
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+
+        <% @prizes.each do |prize| %>
+
+        <li><%= prize.name %> from <%= prize.sponsor %></li>
+
+        <% end %>
+        <li role="separator" class="divider"></li>
+        <li>None</li>
+      </ul>
+    </div>
+  </div>
+
+
 </div>

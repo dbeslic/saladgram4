@@ -26,6 +26,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_median (0.1.3)
+      activerecord
     activejob (4.2.4)
       activesupport (= 4.2.4)
       globalid (>= 0.3.0)
@@ -48,6 +50,11 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (8.2.2)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     chartkick (1.4.2)
     chronic (0.10.2)
     coffee-rails (4.1.1)
@@ -74,8 +81,6 @@ GEM
       thor (~> 0.14)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    groupdate (2.5.2)
-      activesupport (>= 3)
     i18n (0.7.0)
     jquery-rails (4.1.0)
       rails-dom-testing (~> 1.0)
@@ -164,14 +169,15 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  active_median (~> 0.1.0)
   byebug
+  carrierwave
   chartkick
   chronic
   coffee-rails (~> 4.1.0)
   dateslices
   devise
   figaro
-  groupdate
   jquery-rails
   json
   rails (= 4.2.4)

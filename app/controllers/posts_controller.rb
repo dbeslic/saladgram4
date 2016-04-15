@@ -7,6 +7,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def likes
+    @post = Post.find(params[:id])
+    @chat = @post.chat_id
+  end
+
   def new
     @post = Post.new
   end

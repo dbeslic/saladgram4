@@ -1,31 +1,41 @@
-<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 
+<!-- Just download into assets, Javascript -->
 
+<img src="<%= @chat.photo_url %>" class="img-responsive img-circle row-float" width = 150 pt>
 <h1>
-  <img src="<%= @chat.photo_url %>" class="img-responsive img-circle" width = 150 pt>
   <%= @chat.title %>
 </h1>
 
-<h2>Stats this Saladgram chat</h2>
+<h2 class = "clear-float">Stats for this epic Salad battle!</h2>
+
+<div>
+  <dl class="dl-horizontal" style="padding-top: 30px;">
+
+    <dt>
+      <img src="<%= @chat.user.avatar_url %>" class = "img-circle" width = 60 pt>
+      <%= @chat.user.user_name %> *host*
+    </dt>
+    <dd>
+      <%= @chat.user.posts.where({ :chat_id => @chat.id }).count %>
+    </dd>
 
 
-<dl class="dl-horizontal" style="padding-top: 30px;">
+    <% @chat.participants.each do |participant| %>
+    <dt>
+      <%= participant.user_name %>
+    </dt>
+    <dd>
+      <%= participant.posts.where({ :chat_id => @chat.id }).count %>
+    </dd>
+    <% end %>
 
-  <dt>
-    <%= @chat.user.user_name %> *host*
-  </dt>
-  <dd>
-    <%= @chat.user.posts.where({ :chat_id => @chat.id }).count %>
-  </dd>
+  </dl>
+</div>
+
+<div>
+  <h3>Posts by Day</h3>
+
+  <%= line_chart @chat.posts.group_by_day(:created_at).count %>
 
 
-  <% @chat.participants.each do |participant| %>
-  <dt>
-    <%= participant.user_name %>
-  </dt>
-  <dd>
-    <%= participant.posts.where({ :chat_id => @chat.id }).count %>
-  </dd>
-  <% end %>
-
-</dl>
+</div>

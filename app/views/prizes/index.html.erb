@@ -42,7 +42,7 @@
 
           <a href="/prizes/<%= prize.id %>" class="btn btn-primary">Show</a>
           <a href="/prizes/<%= prize.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_prize/<%= prize.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/prizes/<%= prize.id %>" data-method="delete" class="btn btn-danger" rel="nofollow">Delete</a>
 
         </td>
       </tr>

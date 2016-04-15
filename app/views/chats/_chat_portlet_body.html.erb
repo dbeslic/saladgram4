@@ -1,0 +1,76 @@
+<div class="portlet-body chat-widget body-window">
+ <hr>
+
+ <% @chat.posts.each do |post| %>
+ <div class="row">
+  <div class="col-lg-12">
+    <div class="media">
+
+      <a class="pull-left" href="/users/<%= post.user_id %>">
+        <img class="media-object img-circle" src="<%= post.user.avatar_url %>" alt="" width= 40 pt>
+      </a>
+
+      <div class="media-body">
+        <h4 class="media-heading">
+          <a href="/users/<%= post.user_id %>"><%= post.user.user_name %></a>
+          <span class="small pull-right"><%= time_ago_in_words(post.created_at) %></span>
+        </h4>
+
+        <a href="/posts/<%= post.id %>">
+          <img src="<%= post.photo_url %>" class = "img-responsive" width = 450 pt>
+        </a>
+        <p><%= post.caption %></p>
+
+        <form action="/likes" method="post">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+          <!-- Label and input for caption -->
+
+          <div class="form-group">
+            <input type="hidden" id="user_id" name="user_id" value="<%= current_user.id %>">
+          </div>
+
+          <div class="form-group">
+            <input type="hidden" id="post_id" name="post_id" value="<%= post.id %>">
+          </div>
+
+
+          <button class="btn btn-default row-float">
+
+            <% if post.likes.where({ :user_id => current_user.id }).present? %>
+
+            <i class="fa fa-heart"></i>
+            <!-- <small class="text-muted"> You liked it!</small> -->
+
+            <% else %>
+
+            <i class="fa fa-heart-o"></i>
+            <!-- <small class="text-muted"> click to like this</small> -->
+
+            <% end %>
+
+          </button>
+        </form>
+
+        <% if post.likes.count > 0 %>
+
+        <p class = "margin-above-top-sm margin-left-md">
+          <a href="/posts/<%= post.id %>/likes">
+            <%= post.likes.count.to_s %> likes
+          </a>
+        </p>
+
+        <% else %>
+        <p></p>
+        <% end %>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+<hr>
+<% end %>
+</div>
+</div>

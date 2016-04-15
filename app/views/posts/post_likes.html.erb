@@ -1,0 +1,51 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h2><%= @post.likes.count %> Likes</h2>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+
+        <th>User</th>
+
+        <th>Profile</th>
+
+        <th>Name</th>
+
+        <th>Badges</th>
+
+        <th>User ID</th>
+      </tr>
+
+      <% @post.likes.each do |liker| %>
+      <tr>
+
+        <td>
+          <a href="/users/<%= liker.user_id %>"><img src="<%= liker.user.avatar_url %>" class="img-circle" width= 50 pt></a>
+        </td>
+
+        <td>
+          <a href="/users/<%= liker_user_id %>"><%= liker.user.user_name %></a>
+        </td>
+
+        <td><%= liker.user.first_name %> <%= liker.user.last_name %></td>
+
+        <td>
+          Badges List
+        </td>
+
+        <td>
+        <%= liker.user_id %>
+        </td>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

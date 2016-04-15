@@ -1,0 +1,28 @@
+<div class="portlet-body chat-widget body-window">
+ <hr>
+
+ <div class="row">
+  <div class="col-lg-12">
+    <div class="media">
+
+      <a class="pull-left" href="/users/<%= @chat.user_id %>">
+        <img class="media-object img-circle" src="<%= @chat.user.avatar_url %>" alt="" width= 40 pt>
+      </a>
+
+      <div class="media-body">
+        <h4 class="media-heading">
+          <a href="/users/<%= @chat.user_id %>"><%= @chat.user.user_name %></a>
+          <span class="small pull-right">AUTOMATED MESSAGE</span>
+        </h4>
+
+        <p>
+          <i class="fa fa-ban"></i> You are not a member of this chat!
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+<hr>
+
+</div>
