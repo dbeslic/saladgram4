@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
 
-  get "/", :controller => "chats", :action => "index"
-
-  devise_for :users
-  get "/users", :controller => "users", :action => "index"
-  get "/users/:id", :controller => "users", :action => "show"
+  root 'chats#index'
 
 # RESTful Routes
   resources :chats
@@ -20,6 +16,9 @@ Rails.application.routes.draw do
   post "/update_post/:id", :controller => "posts", :action => "update"
   post "/update_prize/:id", :controller => "prizes", :action => "update"
 
+  devise_for :users
+  get "/users", :controller => "users", :action => "index"
+  get "/users/:id", :controller => "users", :action => "show"
 
 # New RCAVs created to post pictures, see stats, likes on one post
   post "/chat_post", :controller => "chats", :action => "chat_post"
