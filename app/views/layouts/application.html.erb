@@ -57,15 +57,22 @@
 
           <!-- <li><a href="/props">Props</a></li> -->
 
-          <li><a href="/likes">All Likes</a></li>
 
-          <!-- <li><a href="/messages">Messages</a></li> -->
+          <li>
+            <%= link_to "NewsFeed", posts_path  %>
+          </li>
 
-          <li><a href="/posts">News Feed</a></li>
+        <% if current_user.present? %>
+          <% if current_user.admin? %>
+            <li><%= link_to "Prizes", prizes_path %></li>
+            
+            <li><%= link_to "All Connections", connections_path %></li>
+  
+            <li><%= link_to "All Likes", likes_path %></li>
+          <% end %>
+        <% end %>
+          
 
-          <li><a href="/prizes">Prizes</a></li>
-
-          <li><a href="/connections">Connections</a></li>
 
           <% if current_user.present? %>
           <li><a href="/users/<%= current_user.id %>">My Chats</a></li>
