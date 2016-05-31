@@ -120,6 +120,10 @@
   margin-bottom: 20px;
 }
 
+.chat-index-photo {
+  width: 250px;
+}
+
 .post-fixed {
   position: absolute;
   bottom: 0;
