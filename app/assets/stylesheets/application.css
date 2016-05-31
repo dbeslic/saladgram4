@@ -129,6 +129,15 @@
   margin-right: 8px;
 }
 
+.portlet-user-thumbnail {
+  width: 40px;
+  margin-right: 8px;
+}
+
+.portlet-post-photo {
+  width: 450px;
+}
+
 .post-fixed {
   position: absolute;
   bottom: 0;

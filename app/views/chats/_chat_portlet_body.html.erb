@@ -5,20 +5,15 @@
  <div class="row">
   <div class="col-lg-12">
     <div class="media">
-
-      <a class="pull-left" href="/users/<%= post.user_id %>">
-        <img class="media-object img-circle" src="<%= post.user.avatar_url %>" alt="" width= 40 pt>
-      </a>
-
+      <%= link_to image_tag(post.user.avatar_url, class: "media-object img-circle portlet-user-thumbnail pull-left"), "/users/#{post.user_id}" %>
       <div class="media-body">
         <h4 class="media-heading">
-          <a href="/users/<%= post.user_id %>"><%= post.user.user_name %></a>
+          <%= link_to post.user.user_name, "/users/#{post.user_id}" %>
           <span class="small pull-right"><%= time_ago_in_words(post.created_at) %></span>
         </h4>
 
-        <a href="/posts/<%= post.id %>">
-          <img src="<%= post.photo_url %>" class = "img-responsive" width = 450 pt>
-        </a>
+        <%= link_to image_tag(post.photo_url, class: "img-responsive portlet-post-photo"), post_path(post.id)  %>
+        
         <p><%= post.caption %></p>
 
         <form action="/likes" method="post">
@@ -55,9 +50,7 @@
         <% if post.likes.count > 0 %>
 
         <p class = "margin-above-top-sm margin-left-md">
-          <a href="/posts/<%= post.id %>/likes">
-            <%= post.likes.count.to_s %> likes
-          </a>
+          <%= link_to "#{post.likes.count.to_s} likes", "/posts/#{post.id}/likes" %>
         </p>
 
         <% else %>
