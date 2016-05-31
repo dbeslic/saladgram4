@@ -18,14 +18,8 @@
          <div class="row">
           <div class="col-lg-12">
             <div class="media">
-
-              <a class="pull-left" href="/chats/<%= chat.id %>">
-                <img class="media-object img-circle" src="<%= chat.photo_url %>" alt="" width= 40 pt>
-              </a>
-              <a href="/chats/<%= chat.id %>">
-                <%= chat.title %>
-              </a>
-
+              <%= link_to image_tag(chat.photo_url, class: "media-object img-circle chat-side-thumbnail pull-left" ), chat_path(chat.id) %>
+              <%= link_to chat.title, chat_path(chat.id) %>
             </div>
           </div>
         </div>
@@ -37,12 +31,8 @@
           <div class="col-lg-12">
             <div class="media">
 
-              <a class="pull-left" href="/chats/<%= chat.id %>">
-                <img class="media-object img-circle" src="<%= chat.photo_url %>" alt="" width= 40 pt>
-              </a>
-              <a href="/chats/<%= chat.id %>">
-                <%= chat.title %>
-              </a>
+              <%= link_to image_tag(chat.photo_url, class: "media-object img-circle chat-side-thumbnail pull-left" ), chat_path(chat.id) %>
+              <%= link_to chat.title, chat_path(chat.id) %>
 
             </div>
           </div>
