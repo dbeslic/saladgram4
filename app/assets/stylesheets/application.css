@@ -138,6 +138,15 @@
   width: 450px;
 }
 
+.chat-new-btn-user {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.user-thumbnail-navbar {
+  width: 22px;
+}
+
 .post-fixed {
   position: absolute;
   bottom: 0;

@@ -28,11 +28,7 @@
      
      <% if  current_user.id == @user.id %>
      <h4>Update Account</h4>
-     <a href="/users/edit">
-      <button class="btn btn-warning btn-user">
-        Edit or Delete
-      </button>
-    </a>
+     <%= link_to "Edit or Delete", "/users/edit", class: "btn btn-warning btn-user" %>
 
     <% end %>
   </div>
@@ -53,15 +49,14 @@
       <p class = "thumbnail-detail">
         with
         <% chat.participants.each do |participant|%>
-        <a href = "/users/<%= participant.id %>">
-          <%= participant.user_name %>;
-        </a>
+          <%= link_to participant.user_name, "/users/#{participant.id}"  %>
         <% end %>
       </p>
 
     </div>
     <% end %>
-
+  
+  <%= link_to "Start New Chat", new_chat_path, class: "btn btn-lg btn-success chat-new-btn-user btn-block" %>
   </div>
 
   <div class="col-md-offset-1 col-md-3 main-content-cell">
@@ -82,34 +77,20 @@
      </a>
      <p class = "clear-float">
       host
-      <a href="/users/<%= chat.user_id %>">
-        <%= chat.user.user_name %>
-      </a>
+      <%= link_to chat.user.user_name, "/users/#{chat.user_id}"  %>
       with
       <% chat.participants.each do |participant|%>
-      <a href = "/users/<%= participant.id %>">
-        <%= participant.user_name %>;
-      </a>
+        <%= link_to participant.user_name, "/users/#{participant.id}"  %>
       <% end %>
     </p>
 
+    </div>
+    <% end %>
+
+
   </div>
-  <% end %>
-
-
-
-
-
-</div>
 
 </div>
 
 
-
-
-<div class="row">
-  <div class="col-md-offset-2 col-md-2"></div>
-  <div class="col-md-offset-1 col-md-2"></div>
-  <div class="col-md-offset-1 col-md-2"></div>
-</div>
 </div>
