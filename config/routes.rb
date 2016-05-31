@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :likes
   resources :posts
   resources :prizes
-  # resources :connections
+  resources :connections
 
 # RESTful Routes not yet working
   # UPDATE
@@ -20,29 +20,13 @@ Rails.application.routes.draw do
   get "/users", :controller => "users", :action => "index"
   get "/users/:id", :controller => "users", :action => "show"
 
-# New RCAVs created to post pictures, see stats, likes on one post
+# New RCAVs created to post pictures, see stats, see likes, and join a chat
   post "/chat_post", :controller => "chats", :action => "chat_post"
   get "/chats/:id/stats", :controller => "chats", :action => "stats"
   get "/posts/:id/likes", :controller => "posts", :action => "likes"
-
-
-  # Routes for the Connection resource:
-  # CREATE
-  get "/connections/new", :controller => "connections", :action => "new"
-  post "/create_connection", :controller => "connections", :action => "create"
-
-  # READ
-  get "/connections", :controller => "connections", :action => "index"
-  get "/connections/:id", :controller => "connections", :action => "show"
+  post "/update_connection/:id", :controller => "connections", :action => "update"
   post "/join_chat", :controller => "chats", :action => "join_chat"
 
-  # UPDATE
-  get "/connections/:id/edit", :controller => "connections", :action => "edit"
-  post "/update_connection/:id", :controller => "connections", :action => "update"
-
-  # DELETE
-  get "/delete_connection/:id", :controller => "connections", :action => "destroy"
-  #------------------------------
 
 
 # resources :badges

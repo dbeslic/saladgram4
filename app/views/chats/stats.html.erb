@@ -6,15 +6,16 @@
   <%= @chat.title %>
 </h1>
 
-<h2 class = "clear-float">Stats for this epic Salad battle!</h2>
+<h3 class = "clear-float">Stats for this epic Salad battle!</h3>
 
 <div>
   <dl class="dl-horizontal" style="padding-top: 30px;">
 
     <dt>
-      <img src="<%= @chat.user.avatar_url %>" class = "img-circle" width = 60 pt>
-      <%= @chat.user.user_name %> *host*
+      <%= link_to @chat.user.user_name, "/users/#{@chat.user_id}" %>
+      <%= link_to image_tag(@chat.user.avatar_url, class: "img-circle portlet-user-thumbnail"), "/users/#{@chat.user_id}" %>
     </dt>
+    
     <dd>
       <%= @chat.user.posts.where({ :chat_id => @chat.id }).count %>
     </dd>
@@ -22,7 +23,8 @@
 
     <% @chat.participants.each do |participant| %>
     <dt>
-      <%= participant.user_name %>
+      <%= link_to participant.user_name, "/users/#{participant.id}" %>
+      <%= link_to image_tag(participant.avatar_url, class: "img-circle portlet-user-thumbnail"), "/users/#{participant.id}" %>
     </dt>
     <dd>
       <%= participant.posts.where({ :chat_id => @chat.id }).count %>
@@ -32,10 +34,13 @@
   </dl>
 </div>
 
+
+
 <div>
-  <h3>Posts by Day</h3>
-
-  <%= line_chart @chat.posts.group_by_day(:created_at).count %>
-
+  <h3>Time Check</h3>
+  <p>
+    Chat started on:
+    <%= @chat.created_at.strftime("%B %d, %Y") %>
+  </p>
 
 </div>

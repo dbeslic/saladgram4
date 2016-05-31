@@ -44,9 +44,9 @@
 
         <td>
 
-          <a href="/connections/<%= connection.id %>" class="btn btn-primary">Show</a>
-          <a href="/connections/<%= connection.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_connection/<%= connection.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <%= link_to "Show", connection_path(connection.id), class: "btn btn-primary", method: 'get' %>
+          <%= link_to "Edit", edit_connection_path(connection.id), class: "btn btn-warning", method: 'get' %>
+          <%= link_to "Delete", connection_path(connection.id), class: "btn btn-danger", method: 'delete' %>
 
         </td>
       </tr>

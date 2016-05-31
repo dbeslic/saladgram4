@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Add Chat</h3>
+  <h3>Create a New Chat</h3>
 </div>
 
 <div class="row">
@@ -29,7 +29,7 @@
         </label>
 
 
-        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @chat.title %>">
+        <input type="text" id="title" name="title" placeholder="Give your chat a name" class="form-control" value="<%= @chat.title %>">
 
       </div>
 
@@ -43,7 +43,7 @@
         </label>
 
 
-        <input type="text" id="photo_url" name="photo_url" placeholder="Photo url" class="form-control" value="<%= @chat.photo_url %>">
+        <input type="text" id="photo_url" name="photo_url" placeholder="Give your chat a pic" class="form-control" value="<%= @chat.photo_url %>">
 
       </div>
 
@@ -56,7 +56,7 @@
           Prize
         </label>
 
-        <input type="text" id="prize_id" name="prize_id" placeholder="Prize" class="form-control" value="<%= @chat.prize_id %>">
+        <input type="text" id="prize_id" name="prize_id" placeholder="Enter ID from list below" class="form-control" value="<%= @chat.prize_id %>">
       </div>
 
       <!-- Label and input for user_id -->
@@ -80,7 +80,7 @@
   </div>
 
   <div class="col-md-12 margin-above-top-md">
-    <h3>[TBU - Prize dropbox. Make functional]</h3>
+    <h3>Prize List: entire id from list below</h3>
 
     <div class="dropdown">
       <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -91,7 +91,7 @@
 
         <% @prizes.each do |prize| %>
 
-        <li><%= prize.name %> from <%= prize.sponsor %></li>
+        <li>id: <%= prize.id %> prize: <%= prize.name %> from <%= prize.sponsor %></li>
 
         <% end %>
         <li role="separator" class="divider"></li>
