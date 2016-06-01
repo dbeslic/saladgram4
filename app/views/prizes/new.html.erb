@@ -71,3 +71,26 @@
 
   </div>
 </div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    
+    <%= form_for(@prize, url: prizes_path, method: 'post') do |f| %>
+      <%= f.label :name, class:  "control-label" %>
+      <%= f.text_field :name, name: "name", class: "form-control" %>
+      
+      <%= f.label :picture_url, class:  "control-label" %>
+      <%= f.text_field :picture_url, name: "picture_url", class: "form-control" %>
+
+      <%= f.label :sponsor, class:  "control-label" %>
+      <%= f.text_field :sponsor, name: "sponsor", class: "form-control" %>
+      
+      <%= f.submit "Create Prize", class: "btn btn-success" %>
+    <% end %>
+    
+    or
+    <%= link_to "Cancel", prizes_path %>
+    
+  </div>
+</div>
