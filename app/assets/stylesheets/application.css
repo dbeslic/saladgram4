@@ -159,6 +159,10 @@
   width: 600px;
 }
 
+.btn-margin-top-sm {
+  margin-top: 10px;
+}
+
 
 .post-fixed {
   position: absolute;
