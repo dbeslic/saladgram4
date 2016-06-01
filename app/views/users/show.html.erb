@@ -22,12 +22,12 @@
      <h4>Contact Info</h4>
      <p><%= @user.email %></p>
 
-     <% if  current_user.admin? %>
-     <h4>Admin Account</h4>
+     <% if  @user.admin? %>
+       <h4>Admin Account</h4>
      <% end %>
      
      <% if  current_user.id == @user.id %>
-     <h4>Update Account</h4>
+       <h4>Update Account</h4>
      <%= link_to "Edit or Delete", "/users/edit", class: "btn btn-warning btn-user" %>
 
     <% end %>
@@ -56,7 +56,10 @@
     </div>
     <% end %>
   
-  <%= link_to "Start New Chat", new_chat_path, class: "btn btn-lg btn-success chat-new-btn-user btn-block" %>
+    <% if @user.id == current_user.id %>
+      <%= link_to "Start New Chat", new_chat_path, class: "btn btn-lg btn-success chat-new-btn-user btn-block" %>
+    <% end %>
+  
   </div>
 
   <div class="col-md-offset-1 col-md-3 main-content-cell">
