@@ -2,8 +2,12 @@
   <h1>
     Connections
 
-    <a href="/connections/new" class="btn btn-lg btn-success">New Connection</a>
-
+    <!--Only admin can create new connection here. Most users have to doing it via the "Join Chat" button in Chat#Show-->
+    <% if current_user.present? %>
+      <% if current_user.admin? %>
+        <%= link_to "Create New Connection", new_connection_path, class: "btn btn-lg btn-success" %>
+      <% end %>
+    <% end %>
   </h1>
 </div>
 

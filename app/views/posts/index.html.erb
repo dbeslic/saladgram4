@@ -3,9 +3,9 @@
     NewsFeed: All Posts
   </h1>
   <h3>Get your healthy ideas here</h3>
-  <h1>
-    <a href="/posts/new" class="btn btn-lg btn-success">New Post</a>
-  </h1>
+  <!--<h1>-->
+  <!--  <a href="/posts/new" class="btn btn-lg btn-success">New Post</a>-->
+  <!--</h1>-->
 </div>
 
 
@@ -16,26 +16,16 @@
     <div class="panel panel-success">
 
       <div class="panel-heading">
-        <a href = "users/<%= post.user_id %>">
-          <img src="<%= post.user.avatar_url %>" class="img-circle" width = 55 pt>
-        </a>
-
-        <a href = "users/<%= post.user_id %>">
-          <%= post.user.user_name %>
-        </a>
+        <%= link_to image_tag(post.user.avatar_url, class: "img-circle user-thumbnail-post-index"), "/users/#{post.user_id}"  %>
+        <%= link_to post.user.user_name, "/users/#{post.user_id}"  %>
+        
         in
-
-        <a href = "chats/<%= post.chat_id %>">
-          <%= post.chat.title %>
-        </a>
-
+        <%= link_to post.chat.title, chat_path(post.chat_id) %>
       </div>
 
       <div class="panel-body">
         <div class ="row">
-          <a href="/posts/<%= post.id %>">
-            <img src="<%= post.photo_url %>" class="img-responsive" width = 600 pt>
-          </a>
+          <%= link_to image_tag(post.photo_url, class: "img-responsive post-index-pic"), post_path(post.id) %>
         </div>
 
         <div class = "row">
@@ -43,10 +33,14 @@
             <li class="list-group-item"><%= post.caption %></li>
             <li class="list-group-item">Post ID: <%= post.id %></li>
 
+            
+            <% if post.user_id == current_user.id || current_user.admin? %> %>
             <li class="list-group-item">
-              <a href="/posts/<%= post.id %>/edit" class="btn btn-warning">Edit</a>
-              <a href="/posts/<%= post.id %>" data-method="delete" class="btn btn-danger" rel="nofollow">Delete</a>
+              <%= link_to "Edit", edit_post_path(post.id), class: "btn btn-warning" %>
+              <%= link_to "Delete", edit_post_path(post.id), class: "btn btn-danger", method: "delete" %>
             </li>
+            <% end %>
+            
           </ul>
 
         </div>

@@ -147,6 +147,19 @@
   width: 22px;
 }
 
+.prize-index-picture {
+  width: 150px;
+}
+
+.user-thumbnail-post-index {
+  width: 55px;
+}
+
+.post-index-pic {
+  width: 600px;
+}
+
+
 .post-fixed {
   position: absolute;
   bottom: 0;

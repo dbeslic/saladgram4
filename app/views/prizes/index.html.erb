@@ -2,8 +2,8 @@
   <h1>
     Prizes
 
-    <a href="/prizes/new" class="btn btn-lg btn-success">New Prize</a>
-
+    <%= link_to "Set Up a New Prize", new_prize_path, class: "btn btn-lg btn-success"  %>
+    
   </h1>
 </div>
 
@@ -26,13 +26,9 @@
       <% @prizes.each do |prize| %>
       <tr>
 
-        <td><%= prize.name %></td>
+        <td><%= link_to prize.name, prize_path(prize.id) %></td>
 
-        <td>
-          <a href = "/prizes/<%= prize.id %>">
-            <img src="<%= prize.picture_url %>" class="img-responsive" width = 150 pt>
-          </a>
-        </td>
+        <td><%= link_to image_tag(prize.picture_url, class: "img-responsive prize-index-picture"), prize_path(prize.id) %></td>
 
         <td><%= prize.sponsor %></td>
 
